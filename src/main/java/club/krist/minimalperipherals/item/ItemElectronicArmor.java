@@ -1,7 +1,6 @@
 package club.krist.minimalperipherals.item;
 
 import club.krist.minimalperipherals.reference.Reference;
-import com.sun.org.apache.xml.internal.security.utils.I18n;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.filesystem.IMount;
 import dan200.computercraft.api.media.IMedia;

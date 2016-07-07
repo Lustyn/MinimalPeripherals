@@ -1,0 +1,6 @@
+
+{
+	"variants": {
+		"normal": { "model": "minimalperipherals:circuit_block" }
+	}
+}

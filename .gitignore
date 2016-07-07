@@ -1,45 +1,22 @@
-*.class
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-#eclipse
-/bin
-/.settings
-/.classpath
-
-#In case people make their workspace in the repo
-/eclipse/
-
-#idea
-/.idea
-/classes
+# idea
+out
+*.ipr
+*.iws
 *.iml
+.idea
 
-#gradle
-/build
-/.gradle
+# gradle
+build
+.gradle
 
-#occupational hazards
-/projects/
-/repo/
-/buildSrc
-
-#Patch rejects
-/patches-/
-*.patch.rej
-
-# FML changelog
-changelog.txt
-/patches_old/
-/patches_old_bak/
-*.py
-*.7z
+# other
+eclipse
+run

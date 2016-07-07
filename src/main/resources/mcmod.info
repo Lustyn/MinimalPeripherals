@@ -1,0 +1,16 @@
+[
+{
+  "modid": "minimalperipherals",
+  "name": "MinimalPeripherals",
+  "description": "Minimal Peripherals.",
+  "version": "0.0",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["justync7"],
+  "credits": "dan200 for making ComputerCraft",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["Forge","ComputerCraft"]
+}
+]

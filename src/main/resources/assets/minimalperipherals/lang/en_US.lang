@@ -1,0 +1,23 @@
+#Electronic Armor
+item.minimalperipherals:electronic_helmet.name=Electronic Helmet
+item.minimalperipherals:electronic_chestplate.name=Electronic Chestplate
+item.minimalperipherals:electronic_leggings.name=Electronic Leggings
+item.minimalperipherals:electronic_boots.name=Electronic Boots
+
+#Steel Ingot
+item.minimalperipherals:steel_ingot.name=Steel Ingot
+
+#Steel Block
+tile.minimalperipherals:steel_block.name=Steel Block
+
+#Circuit Block
+tile.minimalperipherals:circuit_block.name=Circuit Block
+
+#Chat Box
+tile.minimalperipherals:chat_box.name=Chat Box
+
+#Iron Noteblock
+tile.minimalperipherals:iron_noteblock.name=Iron Noteblock
+
+#Creative Tab
+itemGroup.tabMinimalPeripherals=Minimal Peripherals

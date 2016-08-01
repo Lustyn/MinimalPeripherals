@@ -16,12 +16,6 @@ public class ItemRenderRegister {
         register(Item.getItemFromBlock(ModBlocks.chat_box));
         register(Item.getItemFromBlock(ModBlocks.iron_noteblock));
         register(Item.getItemFromBlock(ModBlocks.circuit_block));
-        register(Item.getItemFromBlock(ModBlocks.steel_block));
-        register(ModItems.electronic_helmet);
-        register(ModItems.electronic_chestplate);
-        register(ModItems.electronic_leggings);
-        register(ModItems.electronic_boots);
-        register(ModItems.steel_ingot);
     }
 
     private static void register(Item item) {

@@ -19,9 +19,11 @@ import java.util.*;
 public class TileChatBox extends TilePeripheral {
     public static final String name = "chat_box";
     protected static ArrayList<TileChatBox> chat_boxes = new ArrayList<TileChatBox>();
+    protected static HashMap<TileChatBox, Integer> chat_times = new HashMap<TileChatBox, Integer>();
 
     public TileChatBox() {
         chat_boxes.add(this);
+        chat_times.put(this, 0);
     }
 
     @LuaMethod
@@ -46,6 +48,10 @@ public class TileChatBox extends TilePeripheral {
             pre = (String) arguments[2];
         }
 
+        if (System.currentTimeMillis() - chat_times.get(this) < 1000) {
+            throw new LuaException("Throttled. Max message per second of 1.");
+        }
+
         String message = (String) arguments[0];
         String formatted_message = String.format("%s[%d,%d,%d] %s: %s", pre, getPos().getX(), getPos().getY(), getPos().getZ(), label, message);
         sendMessage(formatted_message);
@@ -66,6 +72,10 @@ public class TileChatBox extends TilePeripheral {
             if (!(arguments[2] instanceof String))
                 throw new LuaException("Invalid argument #3. Expected string.");
             label = (String) arguments[2];
+        }
+
+        if (System.currentTimeMillis() - chat_times.get(this) < 1000) {
+            throw new LuaException("Throttled. Max message per second of 1.");
         }
 
         String pre = "";

@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "minimalperipherals:blocks/steel_block"
-  }
-}

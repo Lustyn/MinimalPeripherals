@@ -9,7 +9,7 @@ import net.minecraft.block.material.Material;
 public class BlockTest extends BlockMinimal {
 
     public BlockTest() {
-        super(Material.iron, 1.5F);
+        super(Material.IRON, 1.5F);
     }
 
     @Override

@@ -4,7 +4,7 @@ import club.krist.minimalperipherals.block.BlockChatBox;
 import club.krist.minimalperipherals.init.ModBlocks;
 import club.krist.minimalperipherals.init.ModItems;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 

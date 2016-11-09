@@ -2,10 +2,11 @@ package club.krist.minimalperipherals.tile;
 
 import club.krist.minimalperipherals.util.LuaMethod;
 import dan200.computercraft.api.lua.LuaException;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EntityDamageSource;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -89,19 +90,19 @@ public class TileChatBox extends TilePeripheral {
         String message = (String) arguments[1];
         String formatted_message = String.format("%s[%d,%d,%d][PM] %s: %s", pre, getPos().getX(), getPos().getY(), getPos().getZ(), label, message);
 
-        EntityPlayer recipient = MinecraftServer.getServer().getConfigurationManager().getPlayerByUsername(player);
+        EntityPlayer recipient = Minecraft.getMinecraft().theWorld.getPlayerEntityByName(player);
         if (recipient != null) {
-            recipient.addChatMessage(new ChatComponentText(formatted_message));
+            recipient.addChatMessage(new TextComponentString(formatted_message));
             return true;
         }
         return false;
     }
 
     private void sendMessage(String message) {
-        List<? extends EntityPlayer> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
+        List<? extends EntityPlayer> players = Minecraft.getMinecraft().theWorld.playerEntities;
 
         for (EntityPlayer player : players) {
-            player.addChatMessage(new ChatComponentText(message));
+            player.addChatMessage(new TextComponentString(message));
         }
     }
 
@@ -113,14 +114,14 @@ public class TileChatBox extends TilePeripheral {
     public static class ChatListener {
         @SubscribeEvent
         public void onChat(ServerChatEvent event) {
-            if (event.message.startsWith("\\")) {
-                String commandName = event.message.substring(1);
+            if (event.getMessage().startsWith("\\")) {
+                String commandName = event.getMessage().substring(1);
                 if (commandName.contains(" ")) {
                     commandName = commandName.substring(0, commandName.indexOf(" "));
                 }
                 String[] args = new String[] {};
-                if (event.message.contains(" ")) {
-                    args = event.message.substring(event.message.indexOf(" ") + 1).split("\\s+");
+                if (event.getMessage().contains(" ")) {
+                    args = event.getMessage().substring(event.getMessage().indexOf(" ") + 1).split("\\s+");
                 }
 
                 for (TileChatBox chatBox : TileChatBox.chat_boxes) {
@@ -129,26 +130,26 @@ public class TileChatBox extends TilePeripheral {
                     for (Object obj : list) {
                         indexedMap.put(list.indexOf(obj) + 1, obj);
                     }
-                    chatBox.queueEvent("command", new Object[] {event.username, commandName, indexedMap});
+                    chatBox.queueEvent("command", new Object[] {event.getUsername(), commandName, indexedMap});
                 }
                 event.setCanceled(true);
             } else {
                 for (TileChatBox chatBox : TileChatBox.chat_boxes) {
-                    chatBox.queueEvent("chat", new Object[] {event.username, event.message});
+                    chatBox.queueEvent("chat", new Object[] {event.getUsername(), event.getMessage()});
                 }
             }
         }
 
         @SubscribeEvent
         public void onDeath(LivingDeathEvent event) {
-            if (event.entity instanceof EntityPlayer) {
+            if (event.getEntity() instanceof EntityPlayer) {
                 String killerName = null;
-                if (event.source instanceof EntityDamageSource) {
-                    killerName = event.source.getEntity().getName();
+                if (event.getSource() instanceof EntityDamageSource) {
+                    killerName = event.getSource().getEntity().getName();
                 }
 
                 for (TileChatBox chatBox : TileChatBox.chat_boxes) {
-                    chatBox.queueEvent("death", new Object[] {event.entity.getName(), killerName, event.source.damageType});
+                    chatBox.queueEvent("death", new Object[] {event.getEntity().getName(), killerName, event.getSource().damageType});
                 }
             }
         }

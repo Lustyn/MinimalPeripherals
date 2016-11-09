@@ -4,7 +4,7 @@
  * For help using the API, and posting your mods, visit the forums at computercraft.info.
  */
 
-@API( owner="ComputerCraft", provides="ComputerCraft|API|Lua", apiVersion="1.79" )
+@API( owner="ComputerCraft", provides="ComputerCraft|API|Lua", apiVersion="1.80pr0" )
 package dan200.computercraft.api.lua;
 
 import net.minecraftforge.fml.common.API;

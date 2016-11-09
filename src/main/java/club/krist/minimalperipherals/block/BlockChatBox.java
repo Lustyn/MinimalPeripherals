@@ -11,7 +11,7 @@ import net.minecraft.world.World;
  */
 public class BlockChatBox extends BlockMinimal implements ITileEntityProvider {
     public BlockChatBox() {
-        super(Material.iron, 1.5F);
+        super(Material.IRON, 1.5F);
     }
 
     @Override

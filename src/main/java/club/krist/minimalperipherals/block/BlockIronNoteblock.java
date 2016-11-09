@@ -11,7 +11,7 @@ import net.minecraft.world.World;
  */
 public class BlockIronNoteblock extends BlockMinimal implements ITileEntityProvider {
     public BlockIronNoteblock(){
-        super(Material.iron, 1.5F);
+        super(Material.IRON, 1.5F);
     }
 
     @Override

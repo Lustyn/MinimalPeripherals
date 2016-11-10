@@ -90,7 +90,7 @@ public class TileChatBox extends TilePeripheral {
         String message = (String) arguments[1];
         String formatted_message = String.format("%s[%d,%d,%d][PM] %s: %s", pre, getPos().getX(), getPos().getY(), getPos().getZ(), label, message);
 
-        EntityPlayer recipient = Minecraft.getMinecraft().theWorld.getPlayerEntityByName(player);
+        EntityPlayer recipient = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerByUsername(player);
         if (recipient != null) {
             recipient.addChatMessage(new TextComponentString(formatted_message));
             return true;
@@ -99,7 +99,7 @@ public class TileChatBox extends TilePeripheral {
     }
 
     private void sendMessage(String message) {
-        List<? extends EntityPlayer> players = Minecraft.getMinecraft().theWorld.playerEntities;
+        List<? extends EntityPlayer> players = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList();
 
         for (EntityPlayer player : players) {
             player.addChatMessage(new TextComponentString(message));

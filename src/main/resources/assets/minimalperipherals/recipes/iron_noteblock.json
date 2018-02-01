@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "minimalperipherals:iron_noteblock"
+  },
+  "pattern": [
+    "#$#",
+    "$%$",
+    "#$#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "$": {
+      "item": "minimalperipherals:circuit_block"
+    },
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "%": {
+      "item": "minecraft:redstone"
+    }
+  }
+}

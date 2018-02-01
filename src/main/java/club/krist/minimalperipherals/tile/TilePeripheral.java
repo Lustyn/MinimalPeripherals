@@ -28,7 +28,7 @@ public abstract class TilePeripheral extends TileEntity implements IMinimalPerip
     @Override
     public String[] getMethodNames() {
         ArrayList<String> methods = new ArrayList<String>();
-        IMinimalPeripheral peripheral = (IMinimalPeripheral) worldObj.getTileEntity(getPos());
+        IMinimalPeripheral peripheral = (IMinimalPeripheral) world.getTileEntity(getPos());
         for (Method method : peripheral.getClass().getMethods()) {
             if (method.isAnnotationPresent(LuaMethod.class)) {
                 methods.add(method.getName());
@@ -39,7 +39,7 @@ public abstract class TilePeripheral extends TileEntity implements IMinimalPerip
 
     @Override
     public Object[] callMethod(IComputerAccess computer, ILuaContext context, int methodIndex, Object[] arguments) throws LuaException, InterruptedException {
-        IMinimalPeripheral peripheral = (IMinimalPeripheral) worldObj.getTileEntity(getPos());
+        IMinimalPeripheral peripheral = (IMinimalPeripheral) world.getTileEntity(getPos());
         for (Method method : peripheral.getClass().getMethods()) {
             if (method.isAnnotationPresent(LuaMethod.class)) {
                 if (method.getName().equals(getMethodNames()[methodIndex])) {

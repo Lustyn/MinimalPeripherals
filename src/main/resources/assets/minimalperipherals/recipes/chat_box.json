@@ -1,0 +1,22 @@
+{
+  "result": {
+    "item": "minimalperipherals:chat_box"
+  },
+  "pattern": [
+    "#$#",
+    "$%$",
+    "#$#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "$": {
+      "item": "minimalperipherals:circuit_block"
+    },
+    "#": {
+      "item": "minecraft:gold_ingot"
+    },
+    "%": {
+      "item": "minecraft:redstone"
+    }
+  }
+}

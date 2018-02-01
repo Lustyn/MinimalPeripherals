@@ -114,7 +114,7 @@ public class TileChatBox extends TilePeripheral {
     @LuaMethod
     public Map<Integer, Object> getPlayerList(Object[] arguments) throws LuaException {
         Map<Integer, Object> indexedMap = new HashMap<Integer, Object>();
-        List<? extends EntityPlayer> players = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayerList();
+        List<? extends EntityPlayer> players = FMLCommonHandler.instance().getMinecraftServerInstance().getPlayerList().getPlayers();
       
         for(EntityPlayer p : players) {
             indexedMap.put(players.indexOf(p) + 1, p.getName());

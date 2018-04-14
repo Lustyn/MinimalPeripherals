@@ -151,8 +151,8 @@ public class TileChatBox extends TilePeripheral {
                 for (TileChatBox chatBox : TileChatBox.chat_boxes) {
                     Map<Integer, Object> indexedMap = new HashMap<Integer, Object>();
                     List list = Arrays.asList(args);
-                    for (Object obj : list) {
-                        indexedMap.put(list.indexOf(obj) + 1, obj);
+                    for (int i = 0; i < list.size(); i++) {
+                        indexedMap.put(i + 1, list.get(i));
                     }
                     chatBox.queueEvent("command", new Object[] {event.getUsername(), commandName, indexedMap});
                 }
